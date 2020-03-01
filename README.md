@@ -52,7 +52,7 @@ git fetch gigalixir
 
 * Push Source
 
-```
+```bash
 git add .
 git commit -m "Update sources."
 git push gigalixir master
