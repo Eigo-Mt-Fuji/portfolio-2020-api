@@ -1,6 +1,8 @@
 # README
 
-```
+![top](./docs/top.png)
+
+```bash
 git clone git@github.com:Eigo-Mt-Fuji/portfolio-2020-api.git portfolio-2020-api
 cd portfolio-2020-api
 mix deps.get
@@ -10,12 +12,11 @@ mix ecto.migrate
 
 ## Gigalixir 
 
-
 ### Setup (Install / Login / CreateApp)
 
 * Install
 
-```
+```bash
 sudo pip3 install gigalixir --ignore-installed six
 ```
 
@@ -55,25 +56,25 @@ git fetch gigalixir
 ```bash
 git add .
 git commit -m "Update sources."
-git push gigalixir master
+git push gigalixir master # FYI: https://gigalixir.readthedocs.io/en/latest/main.html#how-to-clean-your-build-cache
 ```
 
 * Run Db Migration (Check Logs After Migration Finished)
 
-```
+```bash
 gigalixir run mix ecto.migrate # migration
 gigalixir logs 
 ```
 
 * Open Browser
 
-```
+```bash
 gigalixir open
 ```
 
 * Check Process Status
 
-```
+```bash
 gigalixir ps
 ```
 
