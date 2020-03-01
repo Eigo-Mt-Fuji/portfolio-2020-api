@@ -10,44 +10,43 @@ mix ecto.migrate
 
 ## Gigalixir 
 
+
+### Setup (Install / Login / CreateApp)
+
 * Install
 
 ```
-sudo pip install gigalixir --ignore-installed six
+sudo pip3 install gigalixir --ignore-installed six
 ```
 
-* Login
+* Login / Create App (the name will be assigned to APP_NAME)
 
-```
+```bash
 gigalixir login
-```
-
-* Create App (the name will be assigned to APP_NAME)
-
-```
 export APP_NAME=$(gigalixir create)
+gigalixir pg:create -a $APP_NAME --free
 ```
 
-* Create Postgres Database On Gigalixir
+### Continue (Install / Login / CreateApp)
 
-```
-gigalixir pg:create --free
+```bash
+export APP_NAME=grouchy-crowded-asianelephant
 ```
 
 * Set Configrations
 
-```
-gigalixir config:set APP_NAME=$APP_NAME
-gigalixir config:set POOL_SIZE=2 # gigalixir free only allow 2 db connections at the same time.
-gigalixir config:set PORT=4000
-gigalixir config:set SECRET_KEY_BASE=$(mix phx.gen.secret)
+```bash
+gigalixir config:set -a $APP_NAME APP_NAME=$APP_NAME
+gigalixir config:set -a $APP_NAME POOL_SIZE=2 # gigalixir free only allow 2 db connections at the same time.
+gigalixir config:set -a $APP_NAME PORT=4000
+gigalixir config:set -a $APP_NAME SECRET_KEY_BASE=$(mix phx.gen.secret)
 ```
 
 * Setup Gigalixir Git Remote 
 
-```
-cat ~/.netrc
-git remote add gigalixir https://<Mail Address>:<Password>@git.gigalixir.com/$APP_NAME.git # e.g. https://efg.river%40gmail.com:be1b4906-xxxx-4xxx-xxxx-xxxx@git.gigalixir.com/grouchy-crowded-asianelephant.git
+```bash
+cat ~/.netrc # check and copy `machine git.gigalixir.com`'s password.
+git remote add gigalixir https://efg.river%40gmail.com:be1b4906-3af2-4eee-8b3c-95e28a730336@git.gigalixir.com/$APP_NAME.git
 git fetch gigalixir
 ```
 
